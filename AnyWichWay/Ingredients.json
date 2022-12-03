@@ -1,0 +1,3082 @@
+{
+	"Fillings": [
+		{
+			"Name": "None",
+			"Shop": "None",
+			"Cost": 0,
+			"Taste": [
+			],
+			"Power": [
+			],
+			"Type": [
+			]
+		},
+		{
+			"Name": "Apple",
+			"Shop": "Sure Cans",
+			"Cost": 130,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 3
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Flying",
+					"Value": 7
+				},
+				{
+					"Name": "Steel",
+					"Value": 7
+				},
+				{
+					"Name": "Ice",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Avocado",
+			"Shop": "Deli Cioso",
+			"Cost": 180,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Dragon",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Bacon",
+			"Shop": "Deli Cioso",
+			"Cost": 150,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 5
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Rock",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Banana",
+			"Shop": "Sure Cans",
+			"Cost": 80,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 7
+				},
+				{
+					"Name": "Bug",
+					"Value": 7
+				},
+				{
+					"Name": "Electric",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Basil",
+			"Shop": "Deli Cioso",
+			"Cost": 280,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 2
+				},
+				{
+					"Name": "Raid",
+					"Value": 2
+				},
+				{
+					"Name": "Encounter",
+					"Value": -2
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fire",
+					"Value": 1
+				},
+				{
+					"Name": "Water",
+					"Value": 1
+				},
+				{
+					"Name": "Grass",
+					"Value": 1
+				},
+				{
+					"Name": "Electric",
+					"Value": 1
+				},
+				{
+					"Name": "Psychic",
+					"Value": 1
+				},
+				{
+					"Name": "Ice",
+					"Value": 1
+				},
+				{
+					"Name": "Dragon",
+					"Value": 1
+				},
+				{
+					"Name": "Dark",
+					"Value": 1
+				},
+				{
+					"Name": "Fairy",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Cheese",
+			"Shop": "Artisan Bakery",
+			"Cost": 120,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 2
+				},
+				{
+					"Name": "Exp",
+					"Value": 2
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 2
+				},
+				{
+					"Name": "Encounter",
+					"Value": -2
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 5
+				},
+				{
+					"Name": "Fighting",
+					"Value": 5
+				},
+				{
+					"Name": "Flying",
+					"Value": 5
+				},
+				{
+					"Name": "Poison",
+					"Value": 5
+				},
+				{
+					"Name": "Ground",
+					"Value": 5
+				},
+				{
+					"Name": "Rock",
+					"Value": 5
+				},
+				{
+					"Name": "Bug",
+					"Value": 5
+				},
+				{
+					"Name": "Ghost",
+					"Value": 5
+				},
+				{
+					"Name": "Steel",
+					"Value": 5
+				},
+				{
+					"Name": "Fire",
+					"Value": 5
+				},
+				{
+					"Name": "Water",
+					"Value": 5
+				},
+				{
+					"Name": "Grass",
+					"Value": 5
+				},
+				{
+					"Name": "Electric",
+					"Value": 5
+				},
+				{
+					"Name": "Psychic",
+					"Value": 5
+				},
+				{
+					"Name": "Ice",
+					"Value": 5
+				},
+				{
+					"Name": "Dragon",
+					"Value": 5
+				},
+				{
+					"Name": "Dark",
+					"Value": 5
+				},
+				{
+					"Name": "Fairy",
+					"Value": 5
+				}
+			]
+		},
+		{
+			"Name": "Cherry Tomatoes",
+			"Shop": "Sure Cans",
+			"Cost": 120,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 5
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Bug",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Chorizo",
+			"Shop": "Deli Cioso",
+			"Cost": 150,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 2
+				},
+				{
+					"Name": "Hot",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Exp",
+					"Value": 7
+				},
+				{
+					"Name": "Item Drop",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 4
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 12
+				},
+				{
+					"Name": "Poison",
+					"Value": 12
+				},
+				{
+					"Name": "Bug",
+					"Value": 12
+				},
+				{
+					"Name": "Fire",
+					"Value": 12
+				},
+				{
+					"Name": "Electric",
+					"Value": 12
+				},
+				{
+					"Name": "Dragon",
+					"Value": 12
+				}
+			]
+		},
+		{
+			"Name": "Cucumber",
+			"Shop": "Deli Cioso",
+			"Cost": 130,
+			"Taste": [
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Water",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Egg",
+			"Shop": "Deli Cioso",
+			"Cost": 80,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 2
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Exp",
+					"Value": 7
+				},
+				{
+					"Name": "Item Drop",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 4
+				}
+			],
+			"Type": [
+				{
+					"Name": "Flying",
+					"Value": 12
+				},
+				{
+					"Name": "Rock",
+					"Value": 12
+				},
+				{
+					"Name": "Steel",
+					"Value": 12
+				},
+				{
+					"Name": "Grass",
+					"Value": 12
+				},
+				{
+					"Name": "Ice",
+					"Value": 12
+				},
+				{
+					"Name": "Fairy",
+					"Value": 12
+				}
+			]
+		},
+		{
+			"Name": "Fried Fillet",
+			"Shop": "Deli Cioso",
+			"Cost": 360,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Salty",
+					"Value": 3
+				},
+				{
+					"Name": "Bitter",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 21
+				},
+				{
+					"Name": "Raid",
+					"Value": 12
+				},
+				{
+					"Name": "Encounter",
+					"Value": -3
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 20
+				},
+				{
+					"Name": "Flying",
+					"Value": 20
+				},
+				{
+					"Name": "Ground",
+					"Value": 20
+				},
+				{
+					"Name": "Bug",
+					"Value": 20
+				},
+				{
+					"Name": "Steel",
+					"Value": 20
+				},
+				{
+					"Name": "Water",
+					"Value": 20
+				},
+				{
+					"Name": "Electric",
+					"Value": 20
+				},
+				{
+					"Name": "Ice",
+					"Value": 20
+				},
+				{
+					"Name": "Dark",
+					"Value": 20
+				}
+			]
+		},
+		{
+			"Name": "Green Bell Pepper",
+			"Shop": "Deli Cioso",
+			"Cost": 230,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 5
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Poison",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Ham",
+			"Shop": "Artisan Bakery",
+			"Cost": 170,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 5
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ground",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Hamburger",
+			"Shop": "Deli Cioso",
+			"Cost": 380,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 6
+				},
+				{
+					"Name": "Salty",
+					"Value": 12
+				},
+				{
+					"Name": "Bitter",
+					"Value": 9
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": -3
+				},
+				{
+					"Name": "Encounter",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Steel",
+					"Value": 18
+				}
+			]
+		},
+		{
+			"Name": "Herbed Sausage",
+			"Shop": "Deli Cioso",
+			"Cost": 400,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Exp",
+					"Value": 7
+				},
+				{
+					"Name": "Item Drop",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 4
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fighting",
+					"Value": 12
+				},
+				{
+					"Name": "Ground",
+					"Value": 12
+				},
+				{
+					"Name": "Ghost",
+					"Value": 12
+				},
+				{
+					"Name": "Water",
+					"Value": 12
+				},
+				{
+					"Name": "Psychic",
+					"Value": 12
+				},
+				{
+					"Name": "Dark",
+					"Value": 12
+				}
+			]
+		},
+		{
+			"Name": "Jalapeno",
+			"Shop": "Sure Cans",
+			"Cost": 220,
+			"Taste": [
+				{
+					"Name": "Sour",
+					"Value": 2
+				},
+				{
+					"Name": "Hot",
+					"Value": 5
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Rock",
+					"Value": 7
+				},
+				{
+					"Name": "Grass",
+					"Value": 7
+				},
+				{
+					"Name": "Fairy",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Kiwi",
+			"Shop": "Sure Cans",
+			"Cost": 180,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Sour",
+					"Value": 5
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Poison",
+					"Value": 7
+				},
+				{
+					"Name": "Fire",
+					"Value": 7
+				},
+				{
+					"Name": "Dragon",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Klawf Stick",
+			"Shop": "Aquiesta Supermarket",
+			"Cost": 500,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ice",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Lettuce",
+			"Shop": "Artisan Bakery",
+			"Cost": 90,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 2
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Grass",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Noodles",
+			"Shop": "Sure Cans",
+			"Cost": 280,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": 21
+				},
+				{
+					"Name": "Teensy",
+					"Value": -3
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Poison",
+					"Value": 30
+				},
+				{
+					"Name": "Ground",
+					"Value": 30
+				},
+				{
+					"Name": "Rock",
+					"Value": 30
+				},
+				{
+					"Name": "Electric",
+					"Value": 30
+				},
+				{
+					"Name": "Psychic",
+					"Value": 30
+				},
+				{
+					"Name": "Ice",
+					"Value": 30
+				}
+			]
+		},
+		{
+			"Name": "Onion",
+			"Shop": "Artisan Bakery",
+			"Cost": 130,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				},
+				{
+					"Name": "Hot",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Psychic",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Pickle",
+			"Shop": "Sure Cans",
+			"Cost": 90,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 2
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fighting",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Pineapple",
+			"Shop": "Sure Cans",
+			"Cost": 250,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 5
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ground",
+					"Value": 7
+				},
+				{
+					"Name": "Water",
+					"Value": 7
+				},
+				{
+					"Name": "Dark",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Potato Salad",
+			"Shop": "Deli Cioso",
+			"Cost": 110,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Salty",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": 21
+				},
+				{
+					"Name": "Teensy",
+					"Value": -3
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Bug",
+					"Value": 30
+				},
+				{
+					"Name": "Ghost",
+					"Value": 30
+				},
+				{
+					"Name": "Steel",
+					"Value": 30
+				},
+				{
+					"Name": "Dragon",
+					"Value": 30
+				},
+				{
+					"Name": "Dark",
+					"Value": 30
+				},
+				{
+					"Name": "Fairy",
+					"Value": 30
+				}
+			]
+		},
+		{
+			"Name": "Potato Tortilla",
+			"Shop": "Deli Cioso",
+			"Cost": 250,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 3
+				},
+				{
+					"Name": "Hot",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 21
+				},
+				{
+					"Name": "Raid",
+					"Value": 12
+				},
+				{
+					"Name": "Encounter",
+					"Value": -3
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fighting",
+					"Value": 20
+				},
+				{
+					"Name": "Poison",
+					"Value": 20
+				},
+				{
+					"Name": "Rock",
+					"Value": 20
+				},
+				{
+					"Name": "Ghost",
+					"Value": 20
+				},
+				{
+					"Name": "Fire",
+					"Value": 20
+				},
+				{
+					"Name": "Grass",
+					"Value": 20
+				},
+				{
+					"Name": "Psychic",
+					"Value": 20
+				},
+				{
+					"Name": "Dragon",
+					"Value": 20
+				},
+				{
+					"Name": "Fairy",
+					"Value": 20
+				}
+			]
+		},
+		{
+			"Name": "Prosciutto",
+			"Shop": "Deli Cioso",
+			"Cost": 200,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Flying",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Red Bell Pepper",
+			"Shop": "Deli Cioso",
+			"Cost": 240,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fire",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Red Onion",
+			"Shop": "Deli Cioso",
+			"Cost": 240,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ghost",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Rice",
+			"Shop": "Sure Cans",
+			"Cost": 280,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": 21
+				},
+				{
+					"Name": "Teensy",
+					"Value": -3
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 30
+				},
+				{
+					"Name": "Fighting",
+					"Value": 30
+				},
+				{
+					"Name": "Flying",
+					"Value": 30
+				},
+				{
+					"Name": "Fire",
+					"Value": 30
+				},
+				{
+					"Name": "Water",
+					"Value": 30
+				},
+				{
+					"Name": "Grass",
+					"Value": 30
+				}
+			]
+		},
+		{
+			"Name": "Smoked Fillet",
+			"Shop": "Deli Cioso",
+			"Cost": 270,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Salty",
+					"Value": 3
+				},
+				{
+					"Name": "Sour",
+					"Value": 2
+				},
+				{
+					"Name": "Bitter",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Dark",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Strawberry",
+			"Shop": "Sure Cans",
+			"Cost": 140,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 4
+				},
+				{
+					"Name": "Catching",
+					"Value": -1
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 7
+				},
+				{
+					"Name": "Humungo",
+					"Value": -5
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fighting",
+					"Value": 7
+				},
+				{
+					"Name": "Ghost",
+					"Value": 7
+				},
+				{
+					"Name": "Psychic",
+					"Value": 7
+				}
+			]
+		},
+		{
+			"Name": "Tofu",
+			"Shop": "Aquiesta Supermarket",
+			"Cost": 260,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Tomato",
+			"Shop": "Sure Cans",
+			"Cost": 100,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 2
+				},
+				{
+					"Name": "Sour",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fairy",
+					"Value": 6
+				}
+			]
+		},
+		{
+			"Name": "Watercress",
+			"Shop": "Deli Cioso",
+			"Cost": 270,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 2
+				},
+				{
+					"Name": "Bitter",
+					"Value": 5
+				},
+				{
+					"Name": "Hot",
+					"Value": 1
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 2
+				},
+				{
+					"Name": "Raid",
+					"Value": 2
+				},
+				{
+					"Name": "Encounter",
+					"Value": -2
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 1
+				},
+				{
+					"Name": "Fighting",
+					"Value": 1
+				},
+				{
+					"Name": "Flying",
+					"Value": 1
+				},
+				{
+					"Name": "Poison",
+					"Value": 1
+				},
+				{
+					"Name": "Ground",
+					"Value": 1
+				},
+				{
+					"Name": "Rock",
+					"Value": 1
+				},
+				{
+					"Name": "Bug",
+					"Value": 1
+				},
+				{
+					"Name": "Ghost",
+					"Value": 1
+				},
+				{
+					"Name": "Steel",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"Name": "Yellow Bell Pepper",
+			"Shop": "Deli Cioso",
+			"Cost": 240,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 1
+				},
+				{
+					"Name": "Sour",
+					"Value": 1
+				},
+				{
+					"Name": "Bitter",
+					"Value": 3
+				}
+			],
+			"Power": [
+				{
+					"Name": "Catching",
+					"Value": 4
+				},
+				{
+					"Name": "Raid",
+					"Value": -1
+				},
+				{
+					"Name": "Encounter",
+					"Value": 7
+				}
+			],
+			"Type": [
+				{
+					"Name": "Electric",
+					"Value": 6
+				}
+			]
+		}
+	],
+	"Condiments": [
+		{
+			"Name": "None",
+			"Shop": "None",
+			"Cost": 0,
+			"Taste": [
+			],
+			"Power": [
+			],
+			"Type": [
+			]
+		},
+		{
+			"Name": "Butter",
+			"Shop": "Artisan Bakery",
+			"Cost": 250,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 12
+				},
+				{
+					"Name": "Salty",
+					"Value": 12
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Bug",
+					"Value": 2
+				},
+				{
+					"Name": "Ghost",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Chili Sauce",
+			"Shop": "Deli Cioso",
+			"Cost": 320,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 8
+				},
+				{
+					"Name": "Salty",
+					"Value": 12
+				},
+				{
+					"Name": "Sour",
+					"Value": 8
+				},
+				{
+					"Name": "Hot",
+					"Value": 20
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Water",
+					"Value": 2
+				},
+				{
+					"Name": "Grass",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Cream Cheese",
+			"Shop": "Artisan Bakery",
+			"Cost": 280,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 12
+				},
+				{
+					"Name": "Salty",
+					"Value": 12
+				},
+				{
+					"Name": "Sour",
+					"Value": 12
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Bug",
+					"Value": 4
+				},
+				{
+					"Name": "Steel",
+					"Value": 4
+				},
+				{
+					"Name": "Water",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Curry Powder",
+			"Shop": "Aquiesta Supermarket",
+			"Cost": 450,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 12
+				},
+				{
+					"Name": "Hot",
+					"Value": 30
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": -3
+				},
+				{
+					"Name": "Teensy",
+					"Value": 21
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Bug",
+					"Value": 2
+				},
+				{
+					"Name": "Ghost",
+					"Value": 2
+				},
+				{
+					"Name": "Steel",
+					"Value": 2
+				},
+				{
+					"Name": "Fire",
+					"Value": 2
+				},
+				{
+					"Name": "Water",
+					"Value": 2
+				},
+				{
+					"Name": "Grass",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Horseradish",
+			"Shop": "Aquiesta Supermarket",
+			"Cost": 410,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Hot",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": -3
+				},
+				{
+					"Name": "Teensy",
+					"Value": 21
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 2
+				},
+				{
+					"Name": "Fighting",
+					"Value": 2
+				},
+				{
+					"Name": "Flying",
+					"Value": 2
+				},
+				{
+					"Name": "Poison",
+					"Value": 2
+				},
+				{
+					"Name": "Ground",
+					"Value": 2
+				},
+				{
+					"Name": "Rock",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Jam",
+			"Shop": "Artisan Bakery",
+			"Cost": 120,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 16
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Electric",
+					"Value": 4
+				},
+				{
+					"Name": "Ice",
+					"Value": 4
+				},
+				{
+					"Name": "Dark",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Ketchup",
+			"Shop": "Artisan Bakery",
+			"Cost": 110,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 8
+				},
+				{
+					"Name": "Salty",
+					"Value": 16
+				},
+				{
+					"Name": "Sour",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Flying",
+					"Value": 2
+				},
+				{
+					"Name": "Poison",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Marmalade",
+			"Shop": "Artisan Bakery",
+			"Cost": 260,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 12
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 16
+				},
+				{
+					"Name": "Bitter",
+					"Value": 20
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Fighting",
+					"Value": 4
+				},
+				{
+					"Name": "Poison",
+					"Value": 4
+				},
+				{
+					"Name": "Rock",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Mayonnaise",
+			"Shop": "Artisan Bakery",
+			"Cost": 120,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 8
+				},
+				{
+					"Name": "Sour",
+					"Value": 20
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 2
+				},
+				{
+					"Name": "Fighting",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Mustard",
+			"Shop": "Artisan Bakery",
+			"Cost": 130,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Salty",
+					"Value": 8
+				},
+				{
+					"Name": "Sour",
+					"Value": 8
+				},
+				{
+					"Name": "Bitter",
+					"Value": 8
+				},
+				{
+					"Name": "Hot",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ground",
+					"Value": 2
+				},
+				{
+					"Name": "Rock",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Olive Oil",
+			"Shop": "Artisan Bakery",
+			"Cost": 300,
+			"Taste": [
+				{
+					"Name": "Sour",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ghost",
+					"Value": 4
+				},
+				{
+					"Name": "Fire",
+					"Value": 4
+				},
+				{
+					"Name": "Grass",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Peanut Butter",
+			"Shop": "Artisan Bakery",
+			"Cost": 300,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 16
+				},
+				{
+					"Name": "Salty",
+					"Value": 12
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Steel",
+					"Value": 2
+				},
+				{
+					"Name": "Fire",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Pepper",
+			"Shop": "Artisan Bakery",
+			"Cost": 100,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Bitter",
+					"Value": 8
+				},
+				{
+					"Name": "Hot",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Ice",
+					"Value": 2
+				},
+				{
+					"Name": "Dragon",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Salt",
+			"Shop": "Artisan Bakery",
+			"Cost": 90,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 20
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Electric",
+					"Value": 2
+				},
+				{
+					"Name": "Psychic",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Vinegar",
+			"Shop": "Deli Cioso",
+			"Cost": 300,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Sour",
+					"Value": 20
+				},
+				{
+					"Name": "Bitter",
+					"Value": 4
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Psychic",
+					"Value": 4
+				},
+				{
+					"Name": "Dragon",
+					"Value": 4
+				},
+				{
+					"Name": "Fairy",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Wasabi",
+			"Shop": "Aquiesta Supermarket",
+			"Cost": 330,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 4
+				},
+				{
+					"Name": "Salty",
+					"Value": 4
+				},
+				{
+					"Name": "Hot",
+					"Value": 20
+				}
+			],
+			"Power": [
+				{
+					"Name": "Humungo",
+					"Value": -3
+				},
+				{
+					"Name": "Teensy",
+					"Value": 21
+				},
+				{
+					"Name": "Encounter",
+					"Value": 12
+				}
+			],
+			"Type": [
+				{
+					"Name": "Electric",
+					"Value": 2
+				},
+				{
+					"Name": "Psychic",
+					"Value": 2
+				},
+				{
+					"Name": "Ice",
+					"Value": 2
+				},
+				{
+					"Name": "Dragon",
+					"Value": 2
+				},
+				{
+					"Name": "Dark",
+					"Value": 2
+				},
+				{
+					"Name": "Fairy",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Whipped Cream",
+			"Shop": "Artisan Bakery",
+			"Cost": 140,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 20
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 5
+				},
+				{
+					"Name": "Exp",
+					"Value": -3
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 12
+				},
+				{
+					"Name": "Teensy",
+					"Value": -15
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 4
+				},
+				{
+					"Name": "Flying",
+					"Value": 4
+				},
+				{
+					"Name": "Ground",
+					"Value": 4
+				}
+			]
+		},
+		{
+			"Name": "Yogurt",
+			"Shop": "Artisan Bakery",
+			"Cost": 140,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 16
+				},
+				{
+					"Name": "Sour",
+					"Value": 16
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": -3
+				},
+				{
+					"Name": "Exp",
+					"Value": 12
+				},
+				{
+					"Name": "Raid",
+					"Value": 21
+				}
+			],
+			"Type": [
+				{
+					"Name": "Dark",
+					"Value": 2
+				},
+				{
+					"Name": "Fairy",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"Name": "Bitter Herba Mystica",
+			"Shop": "Crater",
+			"Cost": 1000,
+			"Taste": [
+				{
+					"Name": "Bitter",
+					"Value": 500
+				}
+			],
+			"Power": [
+				{
+					"Name": "Title",
+					"Value": 1000
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 1000
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 250
+				},
+				{
+					"Name": "Fighting",
+					"Value": 250
+				},
+				{
+					"Name": "Flying",
+					"Value": 250
+				},
+				{
+					"Name": "Poison",
+					"Value": 250
+				},
+				{
+					"Name": "Ground",
+					"Value": 250
+				},
+				{
+					"Name": "Rock",
+					"Value": 250
+				},
+				{
+					"Name": "Bug",
+					"Value": 250
+				},
+				{
+					"Name": "Ghost",
+					"Value": 250
+				},
+				{
+					"Name": "Steel",
+					"Value": 250
+				},
+				{
+					"Name": "Fire",
+					"Value": 250
+				},
+				{
+					"Name": "Water",
+					"Value": 250
+				},
+				{
+					"Name": "Grass",
+					"Value": 250
+				},
+				{
+					"Name": "Electric",
+					"Value": 250
+				},
+				{
+					"Name": "Psychic",
+					"Value": 250
+				},
+				{
+					"Name": "Ice",
+					"Value": 250
+				},
+				{
+					"Name": "Dragon",
+					"Value": 250
+				},
+				{
+					"Name": "Dark",
+					"Value": 250
+				},
+				{
+					"Name": "Fairy",
+					"Value": 250
+				}
+			]
+		},
+		{
+			"Name": "Spicy Herba Mystica",
+			"Shop": "Crater",
+			"Cost": 1000,
+			"Taste": [
+				{
+					"Name": "Hot",
+					"Value": 500
+				}
+			],
+			"Power": [
+				{
+					"Name": "Title",
+					"Value": 1000
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 1000
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 250
+				},
+				{
+					"Name": "Fighting",
+					"Value": 250
+				},
+				{
+					"Name": "Flying",
+					"Value": 250
+				},
+				{
+					"Name": "Poison",
+					"Value": 250
+				},
+				{
+					"Name": "Ground",
+					"Value": 250
+				},
+				{
+					"Name": "Rock",
+					"Value": 250
+				},
+				{
+					"Name": "Bug",
+					"Value": 250
+				},
+				{
+					"Name": "Ghost",
+					"Value": 250
+				},
+				{
+					"Name": "Steel",
+					"Value": 250
+				},
+				{
+					"Name": "Fire",
+					"Value": 250
+				},
+				{
+					"Name": "Water",
+					"Value": 250
+				},
+				{
+					"Name": "Grass",
+					"Value": 250
+				},
+				{
+					"Name": "Electric",
+					"Value": 250
+				},
+				{
+					"Name": "Psychic",
+					"Value": 250
+				},
+				{
+					"Name": "Ice",
+					"Value": 250
+				},
+				{
+					"Name": "Dragon",
+					"Value": 250
+				},
+				{
+					"Name": "Dark",
+					"Value": 250
+				},
+				{
+					"Name": "Fairy",
+					"Value": 250
+				}
+			]
+		},
+		{
+			"Name": "Salty Herba Mystica",
+			"Shop": "Crater",
+			"Cost": 1000,
+			"Taste": [
+				{
+					"Name": "Salty",
+					"Value": 500
+				}
+			],
+			"Power": [
+				{
+					"Name": "Title",
+					"Value": 1000
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 1000
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 250
+				},
+				{
+					"Name": "Fighting",
+					"Value": 250
+				},
+				{
+					"Name": "Flying",
+					"Value": 250
+				},
+				{
+					"Name": "Poison",
+					"Value": 250
+				},
+				{
+					"Name": "Ground",
+					"Value": 250
+				},
+				{
+					"Name": "Rock",
+					"Value": 250
+				},
+				{
+					"Name": "Bug",
+					"Value": 250
+				},
+				{
+					"Name": "Ghost",
+					"Value": 250
+				},
+				{
+					"Name": "Steel",
+					"Value": 250
+				},
+				{
+					"Name": "Fire",
+					"Value": 250
+				},
+				{
+					"Name": "Water",
+					"Value": 250
+				},
+				{
+					"Name": "Grass",
+					"Value": 250
+				},
+				{
+					"Name": "Electric",
+					"Value": 250
+				},
+				{
+					"Name": "Psychic",
+					"Value": 250
+				},
+				{
+					"Name": "Ice",
+					"Value": 250
+				},
+				{
+					"Name": "Dragon",
+					"Value": 250
+				},
+				{
+					"Name": "Dark",
+					"Value": 250
+				},
+				{
+					"Name": "Fairy",
+					"Value": 250
+				}
+			]
+		},
+		{
+			"Name": "Sour Herba Mystica",
+			"Shop": "Crater",
+			"Cost": 1000,
+			"Taste": [
+				{
+					"Name": "Sour",
+					"Value": 500
+				}
+			],
+			"Power": [
+				{
+					"Name": "Title",
+					"Value": 1000
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 1000
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 250
+				},
+				{
+					"Name": "Fighting",
+					"Value": 250
+				},
+				{
+					"Name": "Flying",
+					"Value": 250
+				},
+				{
+					"Name": "Poison",
+					"Value": 250
+				},
+				{
+					"Name": "Ground",
+					"Value": 250
+				},
+				{
+					"Name": "Rock",
+					"Value": 250
+				},
+				{
+					"Name": "Bug",
+					"Value": 250
+				},
+				{
+					"Name": "Ghost",
+					"Value": 250
+				},
+				{
+					"Name": "Steel",
+					"Value": 250
+				},
+				{
+					"Name": "Fire",
+					"Value": 250
+				},
+				{
+					"Name": "Water",
+					"Value": 250
+				},
+				{
+					"Name": "Grass",
+					"Value": 250
+				},
+				{
+					"Name": "Electric",
+					"Value": 250
+				},
+				{
+					"Name": "Psychic",
+					"Value": 250
+				},
+				{
+					"Name": "Ice",
+					"Value": 250
+				},
+				{
+					"Name": "Dragon",
+					"Value": 250
+				},
+				{
+					"Name": "Dark",
+					"Value": 250
+				},
+				{
+					"Name": "Fairy",
+					"Value": 250
+				}
+			]
+		},
+		{
+			"Name": "Sweet Herba Mystica",
+			"Shop": "Crater",
+			"Cost": 1000,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 500
+				}
+			],
+			"Power": [
+				{
+					"Name": "Title",
+					"Value": 1000
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 1000
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 250
+				},
+				{
+					"Name": "Fighting",
+					"Value": 250
+				},
+				{
+					"Name": "Flying",
+					"Value": 250
+				},
+				{
+					"Name": "Poison",
+					"Value": 250
+				},
+				{
+					"Name": "Ground",
+					"Value": 250
+				},
+				{
+					"Name": "Rock",
+					"Value": 250
+				},
+				{
+					"Name": "Bug",
+					"Value": 250
+				},
+				{
+					"Name": "Ghost",
+					"Value": 250
+				},
+				{
+					"Name": "Steel",
+					"Value": 250
+				},
+				{
+					"Name": "Fire",
+					"Value": 250
+				},
+				{
+					"Name": "Water",
+					"Value": 250
+				},
+				{
+					"Name": "Grass",
+					"Value": 250
+				},
+				{
+					"Name": "Electric",
+					"Value": 250
+				},
+				{
+					"Name": "Psychic",
+					"Value": 250
+				},
+				{
+					"Name": "Ice",
+					"Value": 250
+				},
+				{
+					"Name": "Dragon",
+					"Value": 250
+				},
+				{
+					"Name": "Dark",
+					"Value": 250
+				},
+				{
+					"Name": "Fairy",
+					"Value": 250
+				}
+			]
+		}
+	]
+}

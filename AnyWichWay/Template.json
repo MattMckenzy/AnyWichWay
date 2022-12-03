@@ -1,0 +1,143 @@
+		{
+			"Name": "",
+			"Shop": "",
+			"Cost": ,
+			"Taste": [
+				{
+					"Name": "Sweet",
+					"Value": 
+				},
+				{
+					"Name": "Salty",
+					"Value": 
+				},
+				{
+					"Name": "Sour",
+					"Value": 
+				},
+				{
+					"Name": "Bitter",
+					"Value": 
+				},
+				{
+					"Name": "Hot",
+					"Value": 
+				}
+			],
+			"Power": [
+				{
+					"Name": "Egg",
+					"Value": 
+				},
+				{
+					"Name": "Catching",
+					"Value": 
+				},
+				{
+					"Name": "Exp",
+					"Value": 
+				},
+				{
+					"Name": "Raid",
+					"Value": 
+				},
+				{
+					"Name": "Item Drop",
+					"Value": 
+				},
+				{
+					"Name": "Humungo",
+					"Value": 
+				},
+				{
+					"Name": "Teensy",
+					"Value": 
+				},
+				{
+					"Name": "Encounter",
+					"Value": 
+				},
+				{
+					"Name": "Title",
+					"Value": 
+				},
+				{
+					"Name": "Sparkling",
+					"Value": 
+				}
+			],
+			"Type": [
+				{
+					"Name": "Normal",
+					"Value": 
+				},
+				{
+					"Name": "Fighting",
+					"Value": 
+				},
+				{
+					"Name": "Flying",
+					"Value": 
+				},
+				{
+					"Name": "Poison",
+					"Value": 
+				},
+				{
+					"Name": "Ground",
+					"Value": 
+				},
+				{
+					"Name": "Rock",
+					"Value": 
+				},
+				{
+					"Name": "Bug",
+					"Value": 
+				},
+				{
+					"Name": "Ghost",
+					"Value": 
+				},
+				{
+					"Name": "Steel",
+					"Value": 
+				},
+				{
+					"Name": "Fire",
+					"Value": 
+				},
+				{
+					"Name": "Water",
+					"Value": 
+				},
+				{
+					"Name": "Grass",
+					"Value": 
+				},
+				{
+					"Name": "Electric",
+					"Value": 
+				},
+				{
+					"Name": "Psychic",
+					"Value": 
+				},
+				{
+					"Name": "Ice",
+					"Value": 
+				},
+				{
+					"Name": "Dragon",
+					"Value": 
+				},
+				{
+					"Name": "Dark",
+					"Value": 
+				},
+				{
+					"Name": "Fairy",
+					"Value": 
+				}
+			]
+		}
