@@ -4,6 +4,7 @@
 			"Name": "None",
 			"Shop": "None",
 			"Cost": 0,
+			"Count": 0,
 			"Taste": [
 			],
 			"Power": [
@@ -15,6 +16,7 @@
 			"Name": "Apple",
 			"Shop": "Sure Cans",
 			"Cost": 130,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -66,6 +68,7 @@
 			"Name": "Avocado",
 			"Shop": "Deli Cioso",
 			"Cost": 180,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -101,6 +104,7 @@
 			"Name": "Bacon",
 			"Shop": "Deli Cioso",
 			"Cost": 150,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -144,6 +148,7 @@
 			"Name": "Banana",
 			"Shop": "Sure Cans",
 			"Cost": 80,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -191,6 +196,7 @@
 			"Name": "Basil",
 			"Shop": "Deli Cioso",
 			"Cost": 280,
+			"Count": 4,
 			"Taste": [
 				{
 					"Name": "Salty",
@@ -262,6 +268,7 @@
 			"Name": "Cheese",
 			"Shop": "Artisan Bakery",
 			"Cost": 120,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -369,6 +376,7 @@
 			"Name": "Cherry Tomatoes",
 			"Shop": "Sure Cans",
 			"Cost": 120,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -408,6 +416,7 @@
 			"Name": "Chorizo",
 			"Shop": "Deli Cioso",
 			"Cost": 150,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Salty",
@@ -467,6 +476,7 @@
 			"Name": "Cucumber",
 			"Shop": "Deli Cioso",
 			"Cost": 130,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sour",
@@ -502,6 +512,7 @@
 			"Name": "Egg",
 			"Shop": "Deli Cioso",
 			"Cost": 80,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -561,6 +572,7 @@
 			"Name": "Fried Fillet",
 			"Shop": "Deli Cioso",
 			"Cost": 360,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -632,6 +644,7 @@
 			"Name": "Green Bell Pepper",
 			"Shop": "Deli Cioso",
 			"Cost": 230,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -671,6 +684,7 @@
 			"Name": "Ham",
 			"Shop": "Artisan Bakery",
 			"Cost": 170,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -706,6 +720,7 @@
 			"Name": "Hamburger",
 			"Shop": "Deli Cioso",
 			"Cost": 380,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -745,6 +760,7 @@
 			"Name": "Herbed Sausage",
 			"Shop": "Deli Cioso",
 			"Cost": 400,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -804,6 +820,7 @@
 			"Name": "Jalapeno",
 			"Shop": "Sure Cans",
 			"Cost": 220,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sour",
@@ -851,6 +868,7 @@
 			"Name": "Kiwi",
 			"Shop": "Sure Cans",
 			"Cost": 180,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -902,6 +920,7 @@
 			"Name": "Klawf Stick",
 			"Shop": "Aquiesta Supermarket",
 			"Cost": 500,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -937,6 +956,7 @@
 			"Name": "Lettuce",
 			"Shop": "Artisan Bakery",
 			"Cost": 90,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -972,6 +992,7 @@
 			"Name": "Noodles",
 			"Shop": "Sure Cans",
 			"Cost": 280,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Salty",
@@ -1023,6 +1044,7 @@
 			"Name": "Onion",
 			"Shop": "Artisan Bakery",
 			"Cost": 130,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1062,6 +1084,7 @@
 			"Name": "Pickle",
 			"Shop": "Sure Cans",
 			"Cost": 90,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1101,6 +1124,7 @@
 			"Name": "Pineapple",
 			"Shop": "Sure Cans",
 			"Cost": 250,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1152,6 +1176,7 @@
 			"Name": "Potato Salad",
 			"Shop": "Deli Cioso",
 			"Cost": 110,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1215,6 +1240,7 @@
 			"Name": "Potato Tortilla",
 			"Shop": "Deli Cioso",
 			"Cost": 250,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1294,6 +1320,7 @@
 			"Name": "Prosciutto",
 			"Shop": "Deli Cioso",
 			"Cost": 200,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1333,6 +1360,7 @@
 			"Name": "Red Bell Pepper",
 			"Shop": "Deli Cioso",
 			"Cost": 240,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1372,6 +1400,7 @@
 			"Name": "Red Onion",
 			"Shop": "Deli Cioso",
 			"Cost": 240,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1407,6 +1436,7 @@
 			"Name": "Rice",
 			"Shop": "Sure Cans",
 			"Cost": 280,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1462,6 +1492,7 @@
 			"Name": "Smoked Fillet",
 			"Shop": "Deli Cioso",
 			"Cost": 270,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1505,6 +1536,7 @@
 			"Name": "Strawberry",
 			"Shop": "Sure Cans",
 			"Cost": 140,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1552,6 +1584,7 @@
 			"Name": "Tofu",
 			"Shop": "Aquiesta Supermarket",
 			"Cost": 260,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1583,6 +1616,7 @@
 			"Name": "Tomato",
 			"Shop": "Sure Cans",
 			"Cost": 100,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1622,6 +1656,7 @@
 			"Name": "Watercress",
 			"Shop": "Deli Cioso",
 			"Cost": 270,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Salty",
@@ -1697,6 +1732,7 @@
 			"Name": "Yellow Bell Pepper",
 			"Shop": "Deli Cioso",
 			"Cost": 240,
+			"Count": 3,
 			"Taste": [
 				{
 					"Name": "Sweet",

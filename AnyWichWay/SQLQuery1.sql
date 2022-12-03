@@ -1,20 +1,20 @@
 ﻿Select TOP 200 * FROM dbo.Sandwiches
 WHERE	
-	Salty > Sweet AND
-	Salty >= Salty AND
-	Salty > Sour AND
-	Salty > Bitter AND
-	Salty > Hot AND
-	Encounter > Egg AND
-	Encounter > Catching AND
-	Encounter > [Exp] AND
-	Encounter > Raid AND
-	Encounter > ItemDrop AND
-	Encounter > Humungo AND
-	Encounter > Teensy AND
-	Encounter >= Encounter AND
-	Encounter > Title AND
-	Encounter > Sparkling AND
+	Sweet >= Sweet AND
+	Sweet > Salty AND
+	Sweet > Sour AND
+	Sweet > Bitter AND
+	Sweet > Hot AND
+	[Exp] > Egg AND
+	[Exp] > Catching AND
+	[Exp] >= [Exp] AND
+	[Exp] > Raid AND
+	[Exp] > ItemDrop AND
+	[Exp] > Humungo AND
+	[Exp] > Teensy AND
+	[Exp] > Encounter AND
+	[Exp] > Title AND
+	[Exp] > Sparkling AND
 	Normal >= Normal AND
 	Normal > Fighting AND
 	Normal > Flying AND

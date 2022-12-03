@@ -43,8 +43,8 @@ Console.WriteLine();
 
 Console.Write($"Theorizing Combinations...");
 
-IEnumerable<List<Filling>> fillingCombinations = GenerateCombinations(allFillings.ToList(), 3).Where(fillingCombination => fillingCombination.Any(filling => filling.Name != Fillings.None));
-IEnumerable<List<Condiment>> condimentCombinations = GenerateCombinations(allCondiments.ToList(), 3).Where(condimentCombination => condimentCombination.Any(condiment => condiment.Name != Condiments.None));
+IEnumerable<IEnumerable<Filling>> fillingCombinations = GetPermutations(allFillings.ToList(), 3).Where(fillingCombination => fillingCombination.Any(filling => filling.Name != Fillings.None));
+IEnumerable<IEnumerable<Condiment>> condimentCombinations = GetPermutations(allCondiments.ToList(), 3).Where(condimentCombination => condimentCombination.Any(condiment => condiment.Name != Condiments.None));
 long possibleCombinations = fillingCombinations.Count() * condimentCombinations.Count();
 
 Console.WriteLine($" Done!");
@@ -97,6 +97,7 @@ async Task<(IEnumerable<Filling> Fillings, IEnumerable<Condiment> Condiments)> I
         {
             Name = Enum.Parse<Fillings>(filling["Name"]?.Value<string>()?.Replace(" ", "") ?? string.Empty),
             Shop = Enum.Parse<Shops>(filling["Shop"]?.Value<string>()?.Replace(" ", "") ?? string.Empty),
+            Count = filling["Count"]?.Value<int>() ?? throw new ArgumentException($"Could not parse count of {filling["Name"]}!"),
             Cost = filling["Cost"]?.Value<int>() ?? throw new ArgumentException($"Could not parse cost of {filling["Name"]}!")
         };
 
@@ -172,11 +173,11 @@ async Task<(IEnumerable<Filling> Fillings, IEnumerable<Condiment> Condiments)> I
     return (AllFillings, AllCondiments);
 }
 
-IEnumerable<Sandwich> MakeSandwiches(IEnumerable<List<Filling>> fillingCombinations, IEnumerable<List<Condiment>> condimentCombinations)
+IEnumerable<Sandwich> MakeSandwiches(IEnumerable<IEnumerable<Filling>> fillingCombinations, IEnumerable<IEnumerable<Condiment>> condimentCombinations)
 {
-    foreach(List<Filling> fillingCombination in fillingCombinations)
+    foreach(IEnumerable<Filling> fillingCombination in fillingCombinations)
     {
-        foreach (List<Condiment> condimentCombination in condimentCombinations)
+        foreach (IEnumerable<Condiment> condimentCombination in condimentCombinations)
         {
             Dictionary<Tastes, int> tastes = TasteValueHolder.ToDictionary(taste => taste.Key, taste => taste.Value);
             Dictionary<Powers, int> powers = PowerValueHolder.ToDictionary(power => power.Key, power => power.Value);
@@ -186,15 +187,15 @@ IEnumerable<Sandwich> MakeSandwiches(IEnumerable<List<Filling>> fillingCombinati
             {
                 foreach (TasteValue tasteValue in filling.TasteValues)
                 {
-                    tastes[tasteValue.Name] += tasteValue.Value;
+                    tastes[tasteValue.Name] += tasteValue.Value * filling.Count;
                 }
                 foreach (PowerValue powerValue in filling.PowerValues)
                 {
-                    powers[powerValue.Name] += powerValue.Value;
+                    powers[powerValue.Name] += powerValue.Value * filling.Count;
                 }
                 foreach (TypeValue typeValue in filling.TypeValues)
                 {
-                    types[typeValue.Name] += typeValue.Value;
+                    types[typeValue.Name] += typeValue.Value * filling.Count;
                 }
             }
 
@@ -257,36 +258,19 @@ IEnumerable<Sandwich> MakeSandwiches(IEnumerable<List<Filling>> fillingCombinati
     }
 }
 
-static List<List<T>> GenerateCombinations<T>(List<T> combinationList, int k)
+IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items, int count)
 {
-    List<List<T>> combinations = new();
-
-    if (k == 0)
+    int i = 0;
+    foreach (var item in items)
     {
-        List<T> emptyCombination = new();
-        combinations.Add(emptyCombination);
+        if (count == 1)
+            yield return new T[] { item };
+        else
+        {
+            foreach (var result in GetPermutations(items.Skip(i + 1), count - 1))
+                yield return new T[] { item }.Concat(result);
+        }
 
-        return combinations;
+        ++i;
     }
-
-    if (combinationList.Count == 0)
-    {
-        return combinations;
-    }
-
-    T head = combinationList[0];
-    List<T> copiedCombinationList = new(combinationList);
-
-    List<List<T>> subcombinations = GenerateCombinations(copiedCombinationList, k - 1);
-
-    foreach (List<T> subcombination in subcombinations)
-    {
-        subcombination.Insert(0, head);
-        combinations.Add(subcombination);
-    }
-
-    combinationList.RemoveAt(0);
-    combinations.AddRange(GenerateCombinations(combinationList, k));
-
-    return combinations;
 }
