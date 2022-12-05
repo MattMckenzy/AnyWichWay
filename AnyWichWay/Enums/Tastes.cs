@@ -1,11 +1,11 @@
 ﻿namespace AnyWichWay.Enums
 {
     public enum Tastes
-    {				
-		Sweet,
-		Salty,
+    {
+        Salty,
 		Sour,
 		Bitter,
-		Hot
-	}
+        Hot,
+        Sweet
+    }
 }

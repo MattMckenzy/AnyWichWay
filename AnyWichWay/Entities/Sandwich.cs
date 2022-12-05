@@ -5,10 +5,16 @@ namespace AnyWichWay.Entities
 {
     public class Sandwich
     {
+		public int Key { get; set; }
         public string Fillings { get; set; } = string.Empty;
         public string Condiments { get; set; } = string.Empty;
         public int Cost { get; set; }
-		public int Sweet { get; set; }
+		public string MealPower1 { get; set; } = string.Empty;
+        public string MealPower2 { get; set; } = string.Empty;
+        public string MealPower3 { get; set; } = string.Empty;
+        public string Taste { get; set; } = string.Empty;
+
+        public int Sweet { get; set; }
 		public int Salty { get; set; }
 		public int Sour { get; set; }
 		public int Bitter { get; set; }

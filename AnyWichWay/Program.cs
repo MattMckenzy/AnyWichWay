@@ -1,9 +1,15 @@
 ﻿using AnyWichWay.Entities;
 using AnyWichWay.Enums;
-using Microsoft.EntityFrameworkCore.Internal;
+using Combinatorics.Collections;
 using Newtonsoft.Json.Linq;
 using SqlBulkTools;
+using System.Collections.Concurrent;
 using System.Data.SqlClient;
+
+const int MaxFillingAmount = 5;
+const int MaxCondimentAmount = 3;
+const int parallelProcesses = 20;
+const int updateMilliseconds = 500;
 
 Dictionary<Tastes, int> TasteValueHolder = new();
 foreach (Tastes taste in Enum.GetValues<Tastes>())
@@ -43,9 +49,19 @@ Console.WriteLine();
 
 Console.Write($"Theorizing Combinations...");
 
-IEnumerable<IEnumerable<Filling>> fillingCombinations = GetPermutations(allFillings.ToList(), 3).Where(fillingCombination => fillingCombination.Any(filling => filling.Name != Fillings.None));
-IEnumerable<IEnumerable<Condiment>> condimentCombinations = GetPermutations(allCondiments.ToList(), 3).Where(condimentCombination => condimentCombination.Any(condiment => condiment.Name != Condiments.None));
-long possibleCombinations = fillingCombinations.Count() * condimentCombinations.Count();
+List<IEnumerable<Filling>> fillingCombinations = new();
+for (int fillingCount = 1 ; fillingCount <= MaxFillingAmount; fillingCount++)
+{
+    fillingCombinations.AddRange(new Combinations<Filling>(allFillings.ToList(), fillingCount, GenerateOption.WithRepetition));
+}
+
+List<IEnumerable<Condiment>> condimentCombinations = new();
+for (int condimentCount = 1; condimentCount <= MaxCondimentAmount; condimentCount++)
+{
+    condimentCombinations.AddRange(new Combinations<Condiment>(allCondiments.ToList(), condimentCount, GenerateOption.WithRepetition));
+}
+
+long possibleCombinations = (long)fillingCombinations.Count() * (long)condimentCombinations.Count();
 
 Console.WriteLine($" Done!");
 Console.WriteLine($"{possibleCombinations} Possible Combinations...");
@@ -55,16 +71,37 @@ Console.WriteLine();
 Console.WriteLine($"Making sandwiches...");
 
 int sandwichesChecked = 0;
-List<Sandwich> sandwiches = new();
-foreach(Sandwich sandwich in MakeSandwiches(fillingCombinations, condimentCombinations))
+ConcurrentDictionary<int, Sandwich> sandwiches = new();
+DateTime timeStarted = DateTime.Now;
+
+IEnumerable<IEnumerable<IEnumerable<Filling>>> splitFillingCombinations = Section(fillingCombinations, fillingCombinations.Count() / parallelProcesses + 1);
+List<Task> sandwichTasks = new();
+
+foreach (IEnumerable<IEnumerable<Filling>> fillingCombinationsSplit in splitFillingCombinations)
 {
-    sandwiches.Add(sandwich);
-    sandwichesChecked++;
-
-    if (sandwichesChecked % 10000 == 0)
-        Console.Write($"\r{sandwiches.Count} sandwiches made with {sandwichesChecked}/{possibleCombinations} possible ones checked...");
-
+    sandwichTasks.Add(Task.Run(() =>
+    {
+        foreach (Sandwich sandwich in MakeSandwiches(fillingCombinationsSplit, condimentCombinations))
+        {
+            Interlocked.Increment(ref sandwichesChecked);
+            sandwiches.AddOrUpdate(sandwich.Key, sandwich, (int key, Sandwich currentSandwich) => sandwich.Cost < currentSandwich.Cost ? sandwich : currentSandwich);
+        }
+    }));
 }
+
+sandwichTasks.Add(Task.Run(async () =>
+{
+    while (sandwichesChecked < possibleCombinations)
+    {
+        await Task.Delay(updateMilliseconds);
+        if (sandwichesChecked > 0)
+        {
+            Console.Write($"\r{sandwiches.Count} sandwiches made with {sandwichesChecked}/{possibleCombinations} ({((double)sandwichesChecked / possibleCombinations).ToString("0.00%")}) possible ones checked, with around {(((DateTime.Now - timeStarted) / sandwichesChecked) * (possibleCombinations - sandwichesChecked)).ToString(@"dd\.hh\:mm\:ss")} left...");
+        }
+    }
+}));
+
+Task.WaitAll(sandwichTasks.ToArray());
 
 Console.WriteLine($" Done!");
 
@@ -73,7 +110,7 @@ Console.Write($"Saving menu...");
 
 BulkOperations bulkOperations = new(connectionString);
 
-bulkOperations.Setup<Sandwich>(x => x.ForCollection(sandwiches))
+bulkOperations.Setup<Sandwich>(x => x.ForCollection(sandwiches.Values))
     .WithTable("Sandwiches")
     .AddAllColumns()
     .BulkInsert();
@@ -175,51 +212,24 @@ async Task<(IEnumerable<Filling> Fillings, IEnumerable<Condiment> Condiments)> I
 
 IEnumerable<Sandwich> MakeSandwiches(IEnumerable<IEnumerable<Filling>> fillingCombinations, IEnumerable<IEnumerable<Condiment>> condimentCombinations)
 {
-    foreach(IEnumerable<Filling> fillingCombination in fillingCombinations)
+    foreach (IEnumerable<Filling> fillingCombination in fillingCombinations)
     {
         foreach (IEnumerable<Condiment> condimentCombination in condimentCombinations)
         {
-            Dictionary<Tastes, int> tastes = TasteValueHolder.ToDictionary(taste => taste.Key, taste => taste.Value);
-            Dictionary<Powers, int> powers = PowerValueHolder.ToDictionary(power => power.Key, power => power.Value);
-            Dictionary<Types, int> types = TypesValueHolder.ToDictionary(type => type.Key, type => type.Value);
+            TallyValues(TasteValueHolder, PowerValueHolder, TypesValueHolder, fillingCombination, condimentCombination, out Dictionary<Tastes, int> tastes, out Dictionary<Powers, int> powers, out Dictionary<Types, int> types);
 
-            foreach (Filling filling in fillingCombination)
-            {
-                foreach (TasteValue tasteValue in filling.TasteValues)
-                {
-                    tastes[tasteValue.Name] += tasteValue.Value * filling.Count;
-                }
-                foreach (PowerValue powerValue in filling.PowerValues)
-                {
-                    powers[powerValue.Name] += powerValue.Value * filling.Count;
-                }
-                foreach (TypeValue typeValue in filling.TypeValues)
-                {
-                    types[typeValue.Name] += typeValue.Value * filling.Count;
-                }
-            }
-
-            foreach (Condiment condiment in condimentCombination)
-            {
-                foreach (TasteValue tasteValue in condiment.TasteValues)
-                {
-                    tastes[tasteValue.Name] += tasteValue.Value;
-                }
-                foreach (PowerValue powerValue in condiment.PowerValues)
-                {
-                    powers[powerValue.Name] += powerValue.Value;
-                }
-                foreach (TypeValue typeValue in condiment.TypeValues)
-                {
-                    types[typeValue.Name] += typeValue.Value;
-                }
-            }
+            CalculateMealPowers(tastes, powers, types, out string taste, out MealPower mealPower1, out MealPower mealPower2, out MealPower mealPower3);
 
             yield return new()
             {
-                Fillings = string.Join(", ", fillingCombination.Where(filling => filling.Name != Fillings.None).Select(filling => filling.Name)),
-                Condiments = string.Join(", ", condimentCombination.Where(condiment => condiment.Name != Condiments.None).Select(condiment => condiment.Name)),
+                Key = GenerateSandwichKey(mealPower1, mealPower2, mealPower3),
+                Fillings = string.Join(", ", fillingCombination.Select(filling => filling.Name)),
+                Condiments = string.Join(", ", condimentCombination.Select(condiment => condiment.Name)),
                 Cost = fillingCombination.Sum(filling => filling.Cost) + condimentCombination.Sum(condiment => condiment.Cost),
+                MealPower1 = GenerateMealPowerName(mealPower1),
+                MealPower2 = GenerateMealPowerName(mealPower2),
+                MealPower3 = GenerateMealPowerName(mealPower3),
+                Taste = taste,
                 Sweet = tastes[Tastes.Sweet],
                 Salty = tastes[Tastes.Salty],
                 Sour = tastes[Tastes.Sour],
@@ -258,19 +268,151 @@ IEnumerable<Sandwich> MakeSandwiches(IEnumerable<IEnumerable<Filling>> fillingCo
     }
 }
 
-IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items, int count)
+void CalculateMealPowers(Dictionary<Tastes, int> tastes, Dictionary<Powers, int> powers, Dictionary<Types, int> types, out string taste, out MealPower mealPower1, out MealPower mealPower2, out MealPower mealPower3)
 {
-    int i = 0;
-    foreach (var item in items)
-    {
-        if (count == 1)
-            yield return new T[] { item };
-        else
-        {
-            foreach (var result in GetPermutations(items.Skip(i + 1), count - 1))
-                yield return new T[] { item }.Concat(result);
-        }
+    Queue<(Powers, int)> orderedPowers = new(powers.OrderByDescending(power => power.Value).ThenBy(power => power.Key).Select(power => (power.Key, power.Value)));
+    Queue<(Types, int)> orderedTypes = new(types.OrderByDescending(type => type.Value).ThenBy(type => type.Key).Select(type => (type.Key, type.Value)));
+    IEnumerable<Tastes> orderedTastes = tastes.OrderByDescending(taste => taste.Value).ThenBy(taste => taste.Key).Select(taste => taste.Key);
 
-        ++i;
+    (Powers power1, int powerValue1, taste) = GetTastePower(orderedTastes);
+    (Types type1, int typeValue1) = orderedTypes.Dequeue();
+
+    (Powers power2, int powerValue2) = orderedPowers.Dequeue();
+    if (power1 == power2)
+        (power2, powerValue2) = orderedPowers.Dequeue();
+    (Types type2, int typeValue2) = orderedTypes.Dequeue();
+
+    (Powers power3, int powerValue3) = orderedPowers.Dequeue();
+    if (power1 == power3)
+        (power3, powerValue3) = orderedPowers.Dequeue();
+    (Types type3, int typeValue3) = orderedTypes.Dequeue();
+
+    mealPower1 = new()
+    {
+        Power = power1,
+        Type = type1,
+        Level = CalculateLevel(powerValue1)
+    };
+    mealPower2 = new()
+    {
+        Power = power2,
+        Type = type3, // Yup, third highest type is second meal power type.
+        Level = CalculateLevel(powerValue2)
+    };
+    mealPower3 = new()
+    {
+        Power = power3,
+        Type = type2,  // And second highest type is last meal power type.
+        Level = CalculateLevel(powerValue3)
+    };
+}
+
+(Powers power, int powerValue, string Taste) GetTastePower(IEnumerable<Tastes> orderedTastes)
+{
+    switch (orderedTastes.First())
+    {
+        case Tastes.Salty:
+            if (orderedTastes.ElementAt(1) == Tastes.Bitter)
+                return (Powers.Exp, 0, $"{nameof(Tastes.Salty)} & {nameof(Tastes.Bitter)}");
+            else
+                return (Powers.Encounter, 0, nameof(Tastes.Salty));
+        case Tastes.Bitter:
+            return (Powers.ItemDrop, 0, nameof(Tastes.Bitter));
+        case Tastes.Sour:
+            return (Powers.Catching, 0, nameof(Tastes.Sour));
+        case Tastes.Hot:
+            return (Powers.Raid, 0, nameof(Tastes.Hot));
+        case Tastes.Sweet:
+        default:
+            if (orderedTastes.ElementAt(1) == Tastes.Sour)
+                return (Powers.Catching, 0, $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Sour)}");
+            else if (orderedTastes.ElementAt(1) == Tastes.Hot)
+                return (Powers.Raid, 0, $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Hot)}");
+            else
+                return (Powers.Egg, 0, nameof(Tastes.Sweet));
     }
+}
+
+int CalculateLevel(int value)
+{
+    if (value < 100)
+        return 1;
+    else if (value < 2000)
+        return 2;
+    else
+        return 3;
+}
+
+string GenerateMealPowerName(MealPower mealPower)
+{
+    return $"{mealPower.Power}{(mealPower.Power != Powers.Egg ? $": {mealPower.Type}" : string.Empty)} - Lv. {mealPower.Level}";
+}
+
+int GenerateSandwichKey(MealPower mealPower1, MealPower mealPower2, MealPower mealPower3)
+{
+    int mealPower1Key = (int)mealPower1.Power + (int)mealPower1.Type * 10 + ((mealPower1.Level - 1) * 180);
+    int mealPower2Key = (int)mealPower2.Power + (int)mealPower2.Type * 10 + ((mealPower2.Level - 1) * 180);
+    int mealPower3Key = (int)mealPower3.Power + (int)mealPower3.Type * 10 + ((mealPower3.Level - 1) * 180);
+
+    return mealPower1Key + (mealPower2Key * 1000) + (mealPower3Key * 1000000);
+}
+
+static void TallyValues(Dictionary<Tastes, int> TasteValueHolder, Dictionary<Powers, int> PowerValueHolder, Dictionary<Types, int> TypesValueHolder, IEnumerable<Filling> fillingCombination, IEnumerable<Condiment> condimentCombination, out Dictionary<Tastes, int> tastes, out Dictionary<Powers, int> powers, out Dictionary<Types, int> types)
+{
+    tastes = TasteValueHolder.ToDictionary(taste => taste.Key, taste => taste.Value);
+    powers = PowerValueHolder.ToDictionary(power => power.Key, power => power.Value);
+    types = TypesValueHolder.ToDictionary(type => type.Key, type => type.Value);
+    foreach (Filling filling in fillingCombination)
+    {
+        foreach (TasteValue tasteValue in filling.TasteValues)
+        {
+            tastes[tasteValue.Name] += tasteValue.Value * filling.Count;
+        }
+        foreach (PowerValue powerValue in filling.PowerValues)
+        {
+            powers[powerValue.Name] += powerValue.Value * filling.Count;
+        }
+        foreach (TypeValue typeValue in filling.TypeValues)
+        {
+            types[typeValue.Name] += typeValue.Value * filling.Count;
+        }
+    }
+
+    foreach (Condiment condiment in condimentCombination)
+    {
+        foreach (TasteValue tasteValue in condiment.TasteValues)
+        {
+            tastes[tasteValue.Name] += tasteValue.Value;
+        }
+        foreach (PowerValue powerValue in condiment.PowerValues)
+        {
+            powers[powerValue.Name] += powerValue.Value;
+        }
+        foreach (TypeValue typeValue in condiment.TypeValues)
+        {
+            types[typeValue.Name] += typeValue.Value;
+        }
+    }
+}
+
+static IEnumerable<IEnumerable<T>> Section<T>(IEnumerable<T> source, int length)
+{
+    if (length <= 0)
+        throw new ArgumentOutOfRangeException("length");
+
+    var section = new List<T>(length);
+
+    foreach (var item in source)
+    {
+        section.Add(item);
+
+        if (section.Count == length)
+        {
+            yield return section.AsReadOnly();
+            section = new List<T>(length);
+        }
+    }
+
+    if (section.Count > 0)
+        yield return section.AsReadOnly();
 }

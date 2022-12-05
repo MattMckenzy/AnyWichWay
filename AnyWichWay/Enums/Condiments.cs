@@ -37,7 +37,6 @@ namespace AnyWichWay.Enums
         [Display(Name = "Sour Herba Mystica")]
         SourHerbaMystica,
         [Display(Name = "Sweet Herba Mystica")]
-        SweetHerbaMystica,
-        None
+        SweetHerbaMystica
     }
 }

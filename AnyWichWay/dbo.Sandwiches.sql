@@ -1,8 +1,13 @@
 ﻿CREATE TABLE [dbo].[Sandwiches]
 (
-    [Fillings] NVARCHAR(2000) NOT NULL, 
-	[Condiments] NVARCHAR(2000) NOT NULL,
+	[Key] int NOT NULL,
+    [Fillings] nvarchar(2000) NOT NULL, 
+	[Condiments] nvarchar(2000) NOT NULL,
 	[Cost] int NOT NULL,
+	[MealPower1] nvarchar(2000) NOT NULL,
+	[MealPower2] nvarchar(2000) NOT NULL,
+	[MealPower3] nvarchar(2000) NOT NULL,
+	[Taste] nvarchar(2000) NOT NULL,
 	[Sweet] int NOT NULL,
 	[Salty] int NOT NULL,
 	[Sour] int NOT NULL,
@@ -35,5 +40,6 @@
 	[Ice] int NOT NULL,
 	[Dragon] int NOT NULL,
 	[Dark] int NOT NULL,
-	[Fairy] int NOT NULL
+	[Fairy] int NOT NULL,	
+    CONSTRAINT [PK_Sandwiches] PRIMARY KEY ([Key])
 )

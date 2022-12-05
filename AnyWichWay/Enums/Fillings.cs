@@ -49,7 +49,6 @@ namespace AnyWichWay.Enums
         Tomato,
         Watercress,
         [Display(Name = "Yellow Bell Pepper")]
-        YellowBellPepper,
-        None
+        YellowBellPepper
     }
 }

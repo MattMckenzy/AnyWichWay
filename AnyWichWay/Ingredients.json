@@ -1,18 +1,6 @@
 {
 	"Fillings": [
 		{
-			"Name": "None",
-			"Shop": "None",
-			"Cost": 0,
-			"Count": 0,
-			"Taste": [
-			],
-			"Power": [
-			],
-			"Type": [
-			]
-		},
-		{
 			"Name": "Apple",
 			"Shop": "Sure Cans",
 			"Cost": 130,
@@ -1436,7 +1424,7 @@
 			"Name": "Rice",
 			"Shop": "Sure Cans",
 			"Cost": 280,
-			"Count": 3,
+			"Count": 1,
 			"Taste": [
 				{
 					"Name": "Sweet",
@@ -1770,17 +1758,6 @@
 		}
 	],
 	"Condiments": [
-		{
-			"Name": "None",
-			"Shop": "None",
-			"Cost": 0,
-			"Taste": [
-			],
-			"Power": [
-			],
-			"Type": [
-			]
-		},
 		{
 			"Name": "Butter",
 			"Shop": "Artisan Bakery",
