@@ -70,7 +70,7 @@ Console.WriteLine();
 
 Console.WriteLine($"Making sandwiches...");
 
-int sandwichesChecked = 0;
+long sandwichesChecked = 0;
 ConcurrentDictionary<int, Sandwich> sandwiches = new();
 DateTime timeStarted = DateTime.Now;
 
