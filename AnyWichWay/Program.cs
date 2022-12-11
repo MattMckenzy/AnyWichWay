@@ -6,10 +6,11 @@ using SqlBulkTools;
 using System.Collections.Concurrent;
 using System.Data.SqlClient;
 
-const int MaxFillingAmount = 5;
-const int MaxCondimentAmount = 3;
+const int MaxFillingAmount = 6;
+const int MaxCondimentAmount = 4;
 const int parallelProcesses = 20;
 const int updateMilliseconds = 500;
+const string connectionString = "Data Source=MATT-PC;Initial Catalog=AnyWichWay;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 Dictionary<Tastes, int> TasteValueHolder = new();
 foreach (Tastes taste in Enum.GetValues<Tastes>())
@@ -26,7 +27,6 @@ foreach (Types type in Enum.GetValues<Types>())
 
 Console.Write($"Preparing Database...");
 
-string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AnyWichWay;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 using SqlConnection sqlConnection = new(connectionString);
 using SqlCommand sqlCommand = new("TRUNCATE TABLE [dbo].[Sandwiches];", sqlConnection);
 await sqlConnection.OpenAsync();
@@ -74,7 +74,7 @@ int sandwichesChecked = 0;
 ConcurrentDictionary<int, Sandwich> sandwiches = new();
 DateTime timeStarted = DateTime.Now;
 
-IEnumerable<IEnumerable<IEnumerable<Filling>>> splitFillingCombinations = Section(fillingCombinations, fillingCombinations.Count() / parallelProcesses + 1);
+IEnumerable<IEnumerable<IEnumerable<Filling>>> splitFillingCombinations = Section(fillingCombinations, fillingCombinations.Count / parallelProcesses + 1);
 List<Task> sandwichTasks = new();
 
 foreach (IEnumerable<IEnumerable<Filling>> fillingCombinationsSplit in splitFillingCombinations)
@@ -103,7 +103,8 @@ sandwichTasks.Add(Task.Run(async () =>
 
 Task.WaitAll(sandwichTasks.ToArray());
 
-Console.WriteLine($" Done!");
+Console.WriteLine($" Done!"); 
+Console.WriteLine();
 
 
 Console.Write($"Saving menu...");
@@ -118,6 +119,11 @@ bulkOperations.Setup<Sandwich>(x => x.ForCollection(sandwiches.Values))
 await bulkOperations.CommitTransactionAsync();
 
 Console.WriteLine($" Done!");
+
+
+Console.WriteLine($"AnyWichWay complete, press any key to close...");
+Console.WriteLine();
+Console.ReadKey();
 
 async Task<(IEnumerable<Filling> Fillings, IEnumerable<Condiment> Condiments)> ImportIngredients(string ingredientsJsonPath)
 {
@@ -210,10 +216,36 @@ async Task<(IEnumerable<Filling> Fillings, IEnumerable<Condiment> Condiments)> I
     return (AllFillings, AllCondiments);
 }
 
+static IEnumerable<IEnumerable<T>> Section<T>(IEnumerable<T> source, int length)
+{
+    if (length <= 0)
+        throw new ArgumentOutOfRangeException(nameof(length));
+
+    var section = new List<T>(length);
+
+    foreach (var item in source)
+    {
+        section.Add(item);
+
+        if (section.Count == length)
+        {
+            yield return section.AsReadOnly();
+            section = new List<T>(length);
+        }
+    }
+
+    if (section.Count > 0)
+        yield return section.AsReadOnly();
+}
+
+
 IEnumerable<Sandwich> MakeSandwiches(IEnumerable<IEnumerable<Filling>> fillingCombinations, IEnumerable<IEnumerable<Condiment>> condimentCombinations)
 {
     foreach (IEnumerable<Filling> fillingCombination in fillingCombinations)
     {
+        if (fillingCombination.GroupBy(filling => filling.Name).Any(group => group.Sum(filling => filling.Count) > 12))
+            continue;
+
         foreach (IEnumerable<Condiment> condimentCombination in condimentCombinations)
         {
             TallyValues(TasteValueHolder, PowerValueHolder, TypesValueHolder, fillingCombination, condimentCombination, out Dictionary<Tastes, int> tastes, out Dictionary<Powers, int> powers, out Dictionary<Types, int> types);
@@ -268,100 +300,12 @@ IEnumerable<Sandwich> MakeSandwiches(IEnumerable<IEnumerable<Filling>> fillingCo
     }
 }
 
-void CalculateMealPowers(Dictionary<Tastes, int> tastes, Dictionary<Powers, int> powers, Dictionary<Types, int> types, out string taste, out MealPower mealPower1, out MealPower mealPower2, out MealPower mealPower3)
-{
-    Queue<(Powers, int)> orderedPowers = new(powers.OrderByDescending(power => power.Value).ThenBy(power => power.Key).Select(power => (power.Key, power.Value)));
-    Queue<(Types, int)> orderedTypes = new(types.OrderByDescending(type => type.Value).ThenBy(type => type.Key).Select(type => (type.Key, type.Value)));
-    IEnumerable<Tastes> orderedTastes = tastes.OrderByDescending(taste => taste.Value).ThenBy(taste => taste.Key).Select(taste => taste.Key);
-
-    (Powers power1, int powerValue1, taste) = GetTastePower(orderedTastes);
-    (Types type1, int typeValue1) = orderedTypes.Dequeue();
-
-    (Powers power2, int powerValue2) = orderedPowers.Dequeue();
-    if (power1 == power2)
-        (power2, powerValue2) = orderedPowers.Dequeue();
-    (Types type2, int typeValue2) = orderedTypes.Dequeue();
-
-    (Powers power3, int powerValue3) = orderedPowers.Dequeue();
-    if (power1 == power3)
-        (power3, powerValue3) = orderedPowers.Dequeue();
-    (Types type3, int typeValue3) = orderedTypes.Dequeue();
-
-    mealPower1 = new()
-    {
-        Power = power1,
-        Type = type1,
-        Level = CalculateLevel(powerValue1)
-    };
-    mealPower2 = new()
-    {
-        Power = power2,
-        Type = type3, // Yup, third highest type is second meal power type.
-        Level = CalculateLevel(powerValue2)
-    };
-    mealPower3 = new()
-    {
-        Power = power3,
-        Type = type2,  // And second highest type is last meal power type.
-        Level = CalculateLevel(powerValue3)
-    };
-}
-
-(Powers power, int powerValue, string Taste) GetTastePower(IEnumerable<Tastes> orderedTastes)
-{
-    switch (orderedTastes.First())
-    {
-        case Tastes.Salty:
-            if (orderedTastes.ElementAt(1) == Tastes.Bitter)
-                return (Powers.Exp, 0, $"{nameof(Tastes.Salty)} & {nameof(Tastes.Bitter)}");
-            else
-                return (Powers.Encounter, 0, nameof(Tastes.Salty));
-        case Tastes.Bitter:
-            return (Powers.ItemDrop, 0, nameof(Tastes.Bitter));
-        case Tastes.Sour:
-            return (Powers.Catching, 0, nameof(Tastes.Sour));
-        case Tastes.Hot:
-            return (Powers.Raid, 0, nameof(Tastes.Hot));
-        case Tastes.Sweet:
-        default:
-            if (orderedTastes.ElementAt(1) == Tastes.Sour)
-                return (Powers.Catching, 0, $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Sour)}");
-            else if (orderedTastes.ElementAt(1) == Tastes.Hot)
-                return (Powers.Raid, 0, $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Hot)}");
-            else
-                return (Powers.Egg, 0, nameof(Tastes.Sweet));
-    }
-}
-
-int CalculateLevel(int value)
-{
-    if (value < 100)
-        return 1;
-    else if (value < 2000)
-        return 2;
-    else
-        return 3;
-}
-
-string GenerateMealPowerName(MealPower mealPower)
-{
-    return $"{mealPower.Power}{(mealPower.Power != Powers.Egg ? $": {mealPower.Type}" : string.Empty)} - Lv. {mealPower.Level}";
-}
-
-int GenerateSandwichKey(MealPower mealPower1, MealPower mealPower2, MealPower mealPower3)
-{
-    int mealPower1Key = (int)mealPower1.Power + (int)mealPower1.Type * 10 + ((mealPower1.Level - 1) * 180);
-    int mealPower2Key = (int)mealPower2.Power + (int)mealPower2.Type * 10 + ((mealPower2.Level - 1) * 180);
-    int mealPower3Key = (int)mealPower3.Power + (int)mealPower3.Type * 10 + ((mealPower3.Level - 1) * 180);
-
-    return mealPower1Key + (mealPower2Key * 1000) + (mealPower3Key * 1000000);
-}
-
 static void TallyValues(Dictionary<Tastes, int> TasteValueHolder, Dictionary<Powers, int> PowerValueHolder, Dictionary<Types, int> TypesValueHolder, IEnumerable<Filling> fillingCombination, IEnumerable<Condiment> condimentCombination, out Dictionary<Tastes, int> tastes, out Dictionary<Powers, int> powers, out Dictionary<Types, int> types)
 {
     tastes = TasteValueHolder.ToDictionary(taste => taste.Key, taste => taste.Value);
     powers = PowerValueHolder.ToDictionary(power => power.Key, power => power.Value);
     types = TypesValueHolder.ToDictionary(type => type.Key, type => type.Value);
+
     foreach (Filling filling in fillingCombination)
     {
         foreach (TasteValue tasteValue in filling.TasteValues)
@@ -395,24 +339,221 @@ static void TallyValues(Dictionary<Tastes, int> TasteValueHolder, Dictionary<Pow
     }
 }
 
-static IEnumerable<IEnumerable<T>> Section<T>(IEnumerable<T> source, int length)
+void CalculateMealPowers(Dictionary<Tastes, int> tastes, Dictionary<Powers, int> powers, Dictionary<Types, int> types, out string taste, out MealPower mealPower1, out MealPower mealPower2, out MealPower mealPower3)
 {
-    if (length <= 0)
-        throw new ArgumentOutOfRangeException("length");
+    Queue<(Types, int)> orderedTypes = new(types.OrderByDescending(type => type.Value).ThenBy(type => type.Key).Select(type => (type.Key, type.Value)));
+    IEnumerable<Tastes> orderedTastes = tastes.OrderByDescending(taste => taste.Value).ThenBy(taste => taste.Key).Select(taste => taste.Key);
 
-    var section = new List<T>(length);
+    taste = GetTaste(orderedTastes, ref powers); 
+    Queue<(Powers, int)> orderedPowers = new(powers.OrderByDescending(power => power.Value).ThenBy(power => power.Key).Select(power => (power.Key, power.Value)));
 
-    foreach (var item in source)
+    (Powers power1, int powerValue1) = orderedPowers.Dequeue();
+    (Types type1, int typeValue1) = orderedTypes.Dequeue();
+
+    (Powers power2, int powerValue2) = orderedPowers.Dequeue();
+    (Types type2, int typeValue2) = orderedTypes.Dequeue();
+
+    (Powers power3, int powerValue3) = orderedPowers.Dequeue();
+    (Types type3, int typeValue3) = orderedTypes.Dequeue();
+
+    (type1, type2, type3) = CalculateTypes(type1, typeValue1, powerValue2, type2, typeValue2, powerValue3, type3, typeValue3);
+    (int level1, int level2, int level3) = CalculateLevels(typeValue1, typeValue2, typeValue3);
+
+    mealPower1 = new()
     {
-        section.Add(item);
+        Power = power1,
+        Type = type1,
+        Level = level1
+    };
+    mealPower2 = new()
+    {
+        Power = power2,
+        Type = type2,
+        Level = level2
+    };
+    mealPower3 = new()
+    {
+        Power = power3,
+        Type = type3, 
+        Level = level3
+    };
+}
 
-        if (section.Count == length)
+
+string GetTaste(IEnumerable<Tastes> orderedTastes, ref Dictionary<Powers, int> powers)
+{
+    switch (orderedTastes.First())
+    {
+        case Tastes.Salty:
+            if (orderedTastes.ElementAt(1) == Tastes.Bitter)
+            {
+                powers[Powers.Exp] += 100;
+                return $"{nameof(Tastes.Salty)} & {nameof(Tastes.Bitter)}";
+            }
+            else
+            {
+                powers[Powers.Encounter] += 100;
+                return nameof(Tastes.Salty);
+            }
+
+        case Tastes.Bitter:
+            if (orderedTastes.ElementAt(1) == Tastes.Salty)
+            {
+                powers[Powers.Exp] += 100;
+                return $"{nameof(Tastes.Bitter)} & {nameof(Tastes.Salty)}";
+            }
+            else
+            {
+                powers[Powers.ItemDrop] += 100;
+                return nameof(Tastes.Bitter);
+            }
+
+        case Tastes.Sour:
+            if (orderedTastes.ElementAt(1) == Tastes.Sweet)
+            {
+                powers[Powers.Catching] += 100;
+                return $"{nameof(Tastes.Sour)} & {nameof(Tastes.Sweet)}";
+            }
+            else
+            {
+                powers[Powers.Teensy] += 100;
+                return nameof(Tastes.Sour);
+            }
+
+        case Tastes.Hot:
+            if (orderedTastes.ElementAt(1) == Tastes.Sweet)
+            {
+                powers[Powers.Raid] += 100;
+                return $"{nameof(Tastes.Hot)} & {nameof(Tastes.Sweet)}";
+            }
+            else
+            {
+                powers[Powers.Humungo] += 100;
+                return nameof(Tastes.Hot);
+            }
+             
+        case Tastes.Sweet:
+        default:
+            if (orderedTastes.ElementAt(1) == Tastes.Sour)
+            {
+                powers[Powers.Catching] += 100;
+                return $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Sour)}";
+            }
+            else if (orderedTastes.ElementAt(1) == Tastes.Hot)
+            {
+                powers[Powers.Raid] += 100;
+                return $"{nameof(Tastes.Sweet)} & {nameof(Tastes.Hot)}";
+            } 
+            else
+            {
+                powers[Powers.Egg] += 100;
+                return nameof(Tastes.Sweet);
+            }
+    }
+}
+
+(int level1, int level2, int level3) CalculateLevels(int typeValue1, int typeValue2, int typeValue3)
+{
+    if (typeValue1 >= 460)
+    {
+        return (3, 3, 3);
+    }
+    else if (typeValue1 >= 380)
+    {
+        if (typeValue2 >= 380 && typeValue3 >= 380)
         {
-            yield return section.AsReadOnly();
-            section = new List<T>(length);
+            return (3, 3, 3);
+        }
+        else
+        {
+            return (3, 3, 2);
         }
     }
+    else if (typeValue1 >= 281)
+    {
+        if (typeValue3 >= 180)
+        {
+            return (2, 2, 2);
+        }
+        else
+        {
+            return (2, 2, 1);
+        }
+    }
+    else if (typeValue1 >= 180)
+    {
+        if (typeValue2 >= 180 && typeValue3 >= 180)
+        {
+            return (2, 2, 1);
+        }
+        else
+        {
+            return (2, 1, 1);
+        }
+    }
+    else
+    {
+        return (1, 1, 1);
+    }
+}  
 
-    if (section.Count > 0)
-        yield return section.AsReadOnly();
+(Types type1, Types type2, Types type3) CalculateTypes(Types type1, int typeValue1, int powerValue2, Types type2, int typeValue2, int powerValue3, Types type3, int typeValue3)
+{
+    if (typeValue1 > 480)
+    {
+        return (type1, type1, type1);
+    }
+    else if (typeValue1 > 280)
+    {
+        return (type1, type1, type3);
+    }
+    else if (typeValue1 > 100)
+    {
+        int firstTwoDifference = typeValue1 - typeValue2;
+
+        if (firstTwoDifference >= 100)
+        {
+            return (type1, type1, type3);
+        }
+        else if (firstTwoDifference >= 82)
+        {
+            return (type1, type3, type1);
+        }
+        else if (firstTwoDifference >= 72)
+        {
+            return (type1, type3, type2);
+        }
+    }
+    else if(typeValue1 - typeValue2 >= 72)
+    {
+        if (powerValue2 > 60 && powerValue3 > 60)
+        {
+            if (Math.Abs(powerValue2 - powerValue3) <= 10)
+            {
+                return (type1, type3, type2);
+            }
+            else
+            {
+                return (type1, type3, type1);
+            }
+        }
+        else
+            return (type1, type3, type1);
+    }
+
+    return (type1, type3, type2);
+}
+
+string GenerateMealPowerName(MealPower mealPower)
+{
+    return $"{mealPower.Power}{(mealPower.Power != Powers.Egg ? $": {mealPower.Type}" : string.Empty)} - Lv. {mealPower.Level}";
+}
+
+int GenerateSandwichKey(MealPower mealPower1, MealPower mealPower2, MealPower mealPower3)
+{
+    int mealPower1Key = (int)mealPower1.Power + (int)mealPower1.Type * 10 + ((mealPower1.Level - 1) * 180);
+    int mealPower2Key = (int)mealPower2.Power + (int)mealPower2.Type * 10 + ((mealPower2.Level - 1) * 180);
+    int mealPower3Key = (int)mealPower3.Power + (int)mealPower3.Type * 10 + ((mealPower3.Level - 1) * 180);
+
+    return mealPower1Key + (mealPower2Key * 1000) + (mealPower3Key * 1000000);
 }

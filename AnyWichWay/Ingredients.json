@@ -2619,7 +2619,7 @@
 		{
 			"Name": "Bitter Herba Mystica",
 			"Shop": "Crater",
-			"Cost": 1000,
+			"Cost": 10000,
 			"Taste": [
 				{
 					"Name": "Bitter",
@@ -2714,7 +2714,7 @@
 		{
 			"Name": "Spicy Herba Mystica",
 			"Shop": "Crater",
-			"Cost": 1000,
+			"Cost": 10000,
 			"Taste": [
 				{
 					"Name": "Hot",
@@ -2809,7 +2809,7 @@
 		{
 			"Name": "Salty Herba Mystica",
 			"Shop": "Crater",
-			"Cost": 1000,
+			"Cost": 10000,
 			"Taste": [
 				{
 					"Name": "Salty",
@@ -2904,7 +2904,7 @@
 		{
 			"Name": "Sour Herba Mystica",
 			"Shop": "Crater",
-			"Cost": 1000,
+			"Cost": 10000,
 			"Taste": [
 				{
 					"Name": "Sour",
@@ -2999,7 +2999,7 @@
 		{
 			"Name": "Sweet Herba Mystica",
 			"Shop": "Crater",
-			"Cost": 1000,
+			"Cost": 10000,
 			"Taste": [
 				{
 					"Name": "Sweet",
